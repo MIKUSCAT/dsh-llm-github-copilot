@@ -4,7 +4,7 @@
 
 为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 提供 GitHub Copilot 登录。
 
-本插件提供 GitHub OAuth 设备流登录页面和斜杠命令，并写入 Harness 内置 `github-copilot` 提供方使用的凭据。它**不注册 LLM 适配器**，也不维护模型目录：token 交换与刷新、模型可用性、请求、图片和流式处理均由 Harness 的 `@deepseek-ai/dsh-llm-pi-ai` 路由负责。可用模型取决于该路由的目录和账号权限，而不只取决于 Copilot 订阅。参见 [ADR-0002](docs/adr/0002-narrow-to-credential-provider.md)。
+本插件提供 GitHub OAuth 设备流登录页面和斜杠命令，写入 Harness 内置 `github-copilot` 提供方使用的凭据，并将发往 Copilot 的 HTTP 请求头与 OpenCode 对齐（强制携带 `User-Agent: GitHubCopilotChat/0.35.0`、`Editor-Version: vscode/1.107.0`、`Copilot-Integration-Id: vscode-chat`、`Openai-Intent: conversation-edits`，并在工具调用跟进、`runtime-context`/`time-context` 上下文注入、`session-title` 标题生成与 `compaction` 上下文压缩等场景下精准标记 `X-Initiator: agent` 以保护高级请求额度）。它**不注册 LLM 适配器**，也不维护模型目录：token 交换与刷新、模型可用性、请求、图片和流式处理均由 Harness 的 `@deepseek-ai/dsh-llm-pi-ai` 路由负责。可用模型取决于该路由的目录和账号权限，而不只取决于 Copilot 订阅。参见 [ADR-0002](docs/adr/0002-narrow-to-credential-provider.md)。
 
 ## 依赖要求
 

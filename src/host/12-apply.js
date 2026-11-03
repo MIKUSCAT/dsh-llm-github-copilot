@@ -28,6 +28,7 @@ function apply(ctx, config) {
     }
   };
   options();
+  installCopilotWireAlignment(ctx);
 
   // ── credential plane ─────────────────────────────────────────────────────
   /**

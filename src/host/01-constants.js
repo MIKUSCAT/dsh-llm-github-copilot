@@ -39,9 +39,17 @@ const VERIFICATION_URI = "https://github.com/login/device";
 const OAUTH_CLIENT_ID = "Iv1.b507a08c87ecfe98";
 const OAUTH_SCOPE = "read:user";
 
-/** Identity headers the device flow sends, matching the Copilot editor clients. */
+/** Identity headers matching OpenCode's GitHub Copilot integration. */
 const EDITOR_VERSION = "vscode/1.107.0";
 const EDITOR_PLUGIN_VERSION = "copilot-chat/0.35.0";
 const EXCHANGE_USER_AGENT = "GitHubCopilotChat/0.35.0";
+const COPILOT_INTEGRATION_ID = "vscode-chat";
+const OPENAI_INTENT = "conversation-edits";
+const COPILOT_HEADERS = Object.freeze({
+  "User-Agent": EXCHANGE_USER_AGENT,
+  "Editor-Version": EDITOR_VERSION,
+  "Editor-Plugin-Version": EDITOR_PLUGIN_VERSION,
+  "Copilot-Integration-Id": COPILOT_INTEGRATION_ID
+});
 //#endregion
 

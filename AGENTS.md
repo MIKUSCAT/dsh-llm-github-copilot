@@ -22,9 +22,11 @@ phase with exact commands.
 
 ## Feature design authority
 
-This plugin runs the GitHub device flow and writes one credential record. It
-registers no LLM adapter, serializes no requests, and owns no model catalog.
-Before adding anything outside that boundary, read:
+This plugin runs the GitHub device flow, writes one credential record, and
+aligns outgoing Copilot HTTP headers and `X-Initiator` quota attribution with
+OpenCode (`src/host/08-wire-align.js`). It registers no LLM adapter,
+serializes no requests, and owns no model catalog. Before adding anything
+outside that boundary, read:
 
 ```text
 docs/adr/0002-narrow-to-credential-provider.md

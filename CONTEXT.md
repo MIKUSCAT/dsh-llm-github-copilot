@@ -40,3 +40,10 @@ The harness-provided Copilot provider that reads the Grant record and serves
 model requests (`llm-pi-ai`'s `github-copilot`). Named by role because the
 handoff depends on the record it reads, not on which plugin ships it.
 _Avoid_: pi-ai (the library beneath it), adapter (this plugin used to be one).
+
+**Wire alignment**:
+Shaping outgoing Copilot HTTP requests at the `llm/stream` and `fetch` seams so
+they carry OpenCode's Copilot identity headers (`GitHubCopilotChat/0.35.0`,
+`vscode/1.107.0`, `vscode-chat`) instead of `deepseek-harness/...` and classify
+agent tool loops, context snapshots (`runtime-context`, `time-context`), and
+auxiliary calls (`session-title`, `compaction`) as `X-Initiator: agent`.

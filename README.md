@@ -4,7 +4,7 @@ English | [中文](README.zh.md)
 
 GitHub Copilot sign-in for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).
 
-This plugin provides a GitHub OAuth device-flow page and slash commands, then writes the credential used by the Harness's built-in `github-copilot` provider. It registers **no LLM adapter** and owns no model catalog: token exchange and refresh, model availability, requests, images, and streaming belong to the Harness's `@deepseek-ai/dsh-llm-pi-ai` route. Available models depend on that route's catalog and your account's access, not just your Copilot plan. See [ADR-0002](docs/adr/0002-narrow-to-credential-provider.md).
+This plugin provides a GitHub OAuth device-flow page and slash commands, writes the credential used by the Harness's built-in `github-copilot` provider, and aligns outgoing Copilot HTTP headers with OpenCode (`User-Agent: GitHubCopilotChat/0.35.0`, `Editor-Version: vscode/1.107.0`, `Copilot-Integration-Id: vscode-chat`, `Openai-Intent: conversation-edits`, and accurate `X-Initiator: user | agent` quota attribution across tool follow-ups, `runtime-context`/`time-context` injections, `session-title`, and `compaction`). It registers **no LLM adapter** and owns no model catalog: token exchange and refresh, model availability, requests, images, and streaming belong to the Harness's `@deepseek-ai/dsh-llm-pi-ai` route. Available models depend on that route's catalog and your account's access, not just your Copilot plan. See [ADR-0002](docs/adr/0002-narrow-to-credential-provider.md).
 
 ## Requirements
 

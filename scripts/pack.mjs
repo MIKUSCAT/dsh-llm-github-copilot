@@ -6,4 +6,8 @@ import { fileURLToPath } from 'node:url'
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
 await mkdir(dist, { recursive: true })
-execFileSync('npm', ['pack', '--pack-destination', dist], { cwd: root, stdio: 'inherit' })
+execFileSync('npm', ['pack', '--pack-destination', dist], {
+  cwd: root,
+  stdio: 'inherit',
+  shell: process.platform === 'win32'
+})

@@ -26,7 +26,7 @@ async function startDeviceFlow() {
       headers: {
         accept: "application/json",
         "content-type": "application/x-www-form-urlencoded",
-        "user-agent": EXCHANGE_USER_AGENT
+        ...COPILOT_HEADERS
       },
       body: new URLSearchParams({ client_id: OAUTH_CLIENT_ID, scope: OAUTH_SCOPE }).toString()
     });
@@ -59,7 +59,7 @@ async function pollDeviceFlow(device) {
       headers: {
         accept: "application/json",
         "content-type": "application/x-www-form-urlencoded",
-        "user-agent": EXCHANGE_USER_AGENT
+        ...COPILOT_HEADERS
       },
       body
     });
